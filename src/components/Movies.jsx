@@ -13,23 +13,23 @@ import authorFour from './../images/author-4.svg'
 
 class Movies extends Component {
     state = { 
-        movieDetails:['10/25/2019','Comedy, Crime','1h 52m','Play Trailer'],
+        movieDetails:['10/25/2019','Comedy, Crime','1h 52m',' Play Trailer'],
         author:[ 
-            {name:'Ali Atay',title:'Director, Writer'},
-            {name:'Aziz Kedi',title:'Writer'},
-            {name:'Feyyaz Yiğit',title:'Writer'},
+            {_id:1,name:'Ali Atay',title:'Director, Writer'},
+            {_id:2,name:'Aziz Kedi',title:'Writer'},
+            {_id:3,name:'Feyyaz Yiğit',title:'Writer'},
         ],
         otherAuthors:[
-            {name:'Uğur Yücel', profileImg: authorOne,title:'Başkomiser Emin'},
-            {name:'Binnur Kaya', profileImg: authorTwo,title:'Komiser Asuman'},
-            {name:'Cengiz Bozkurt', profileImg: authorThree,title:'Komiser Salih'},
-            {name:'Feyyaz Yiğit', profileImg: authorFour,title:'Suç Uzmanı Dizdar Koşu'}
+            {_id:1,name:'Uğur Yücel', profileImg: authorOne,title:'Başkomiser Emin'},
+            {_id:2,name:'Binnur Kaya', profileImg: authorTwo,title:'Komiser Asuman'},
+            {_id:3,name:'Cengiz Bozkurt', profileImg: authorThree,title:'Komiser Salih'},
+            {_id:4,name:'Feyyaz Yiğit', profileImg: authorFour,title:'Suç Uzmanı Dizdar Koşu'}
         ]
      } 
     render() { 
         return (
-            <div className='w-11/12 mx-auto max-w-5xl flex justify-between items-start mt-4 flex-col md:flex-row border'>
-                <div className='md:w-[29%] w-[100%]'>
+            <div className='w-11/12 mx-auto max-w-6xl flex justify-between items-start mt-[60px] flex-col md:flex-row'>
+                <div className='md:w-[30%] w-[100%]'>
                     <img src={movieImg} className="w-[100%]" alt="" />
                     <Button className='w-full bg-green rounded-b-lg'>
                         <img src={netflixIcon} alt="" style={c2} />
@@ -37,7 +37,7 @@ class Movies extends Component {
                     <Button className='w-full bg-red rounded-lg p-3 mt-8' text='Another Suggestion' />
                      
                 </div>
-                <div className='md:w-[64%] w-[100%] md:mt-0 mt-4'>
+                <div className='md:w-[60%] w-[100%] md:mt-0 mt-4'>
                     <h1 className='font-[playfair] text-5xl font-bold '>You've Got Murder</h1>
                     <ul className='mt-4'>
                         {this.state.movieDetails.map(detail => <li className='inline mr-3 bg-grey font-semibold p-2 rounded-[12px] text-[14px]' key={detail}>{detail}</li>)}
@@ -56,7 +56,7 @@ class Movies extends Component {
                    <div className='mt-3'>
                      <div className='flex space-x-[60px] font-[inter]'>
                         {this.state.author.map(authdets => { return (
-                                <div className='flex flex-col justify-center items-center' key={authdets}>
+                                <div className='flex flex-col justify-center items-center' key={authdets._id}>
                                     <small className='font-bold text-sm'>{authdets.name}</small> 
                                     <p className='text-xs'>{authdets.title}</p> 
                                 </div>
@@ -69,7 +69,7 @@ class Movies extends Component {
                         <div className="flex justify-between font-[inter]">
                             {this.state.otherAuthors.map( otherauthor => {
                                 return (
-                                    <div className='flex flex-col items-center' key={otherauthor}>
+                                    <div className='flex flex-col items-center' key={otherauthor._id}>
                                         <img src={otherauthor.profileImg}  style={{width:'48px'}} alt="" />
                                         <small className='text-sm font-bold'>{otherauthor.name}</small>
                                         <p className='text-sm font-normal'>{otherauthor.title}</p>
